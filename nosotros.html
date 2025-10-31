@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conozca a RICALDI HOLDING GROUP, una plataforma integrada de servicios profesionales en ingeniería, derecho, medicina y psicología, liderada por Osler Lazaro Ricaldi Sánchez.">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nosotros - RICALDI HOLDING GROUP</title>
+</head>
+
+<body>
+    <main class="main">
+        <!-- Header -->
+        <header class="cabecera">
+            <a href="index.html" class="cabecera_link">
+                <img src="img/osler.png" alt="Logo de pagina" class="cabecera_img">Osler Lazaro Ricaldi Sánchez
+            </a>
+        </header>
+
+        <!-- Navegación -->
+        <nav class="navega" id="navega">
+            <div class="navega-container">
+                <a href="index.html" class="navega-link">Inicio</a>
+                <a href="nosotros.html" class="navega-link active">Nosotros</a>
+                <a href="servicios.html" class="navega-link">Servicios</a>
+                <a href="contacto.html" class="navega-link">Contacto</a>
+            </div>
+            <button class="navega-toggle" aria-label="Toggle menu">
+                <span class="navega-icon"></span>
+            </button>
+        </nav>
+
+        <!-- Sección Nosotros -->
+        <section class="nosotros">
+            <div class="nosotros-container">
+                <h1>RICALDI HOLDING GROUP</h1>
+                <h2>Sobre Nosotros</h2>
+                <p>
+                    <strong>RICALDI HOLDING GROUP</strong> es una plataforma integrada de servicios profesionales que combina experiencia en ingeniería, derecho, medicina y psicología. Fundada por Osler Lazaro Ricaldi Sánchez, nuestra misión es ofrecer
+                    soluciones innovadoras y de calidad a nivel nacional, brindando un enfoque multidisciplinario para satisfacer las necesidades de nuestros clientes.
+                </p>
+
+                <div class="modal" id="equipo-modal">
+                    <div class="modal-content">
+                        <span class="modal-close">&times;</span>
+                        <h4 id="modal-nombre"></h4>
+                        <p id="modal-cargo" class="cargo"></p>
+                        <p id="modal-descripcion"></p>
+                        <a id="modal-enlace" href="#" target="_blank">Ver perfil completo</a>
+                    </div>
+                </div>
+
+                <div class="nosotros-mision-vision">
+                    <div class="nosotros-mision">
+                        <h3>Nuestra Misión</h3>
+                        <p>
+                            Proveer servicios integrales que impulsen el desarrollo y bienestar de nuestros clientes, utilizando la tecnología y la inteligencia artificial para optimizar resultados.
+                        </p>
+                    </div>
+                    <div class="nosotros-vision">
+                        <h3>Nuestra Visión</h3>
+                        <p>
+                            Ser la plataforma líder a nivel global en la integración de servicios profesionales, reconocida por nuestra excelencia, innovación y compromiso con la sociedad.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="nosotros-equipo">
+                    <h3>Nuestro Equipo</h3>
+                    <p>
+                        Contamos con un equipo de profesionales altamente calificados en diversas disciplinas, comprometidos con ofrecer soluciones personalizadas y efectivas. Conozca a algunos de nuestros expertos a continuación:
+                    </p>
+
+                    <!-- Botones de filtro -->
+                    <div class="equipo-filtros">
+                        <button class="filtro-boton active" data-categoria="todos">Todos</button>
+                        <button class="filtro-boton" data-categoria="ingenieria">Ingeniería</button>
+                        <button class="filtro-boton" data-categoria="derecho">Derecho</button>
+                        <button class="filtro-boton" data-categoria="medicina">Medicina</button>
+                        <button class="filtro-boton" data-categoria="psicologia">Psicología</button>
+                        <button class="filtro-boton" data-categoria="arquitectura">Arquitectura</button>
+                    </div>
+
+                    <!-- Cuadros de integrantes -->
+                    <div class="equipo-imagenes">
+                        <!-- Integrante 1 -->
+                        <div class="equipo-miembro" data-categoria="ingenieria">
+                            <img src="img_equipo/amg1.jpg" alt="Osler Lazaro Ricaldi Sánchez" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Osler Lazaro Ricaldi Sánchez</h4>
+                                <p class="cargo">Fundador y Director Ejecutivo</p>
+                                <p>
+                                    Ingeniero y abogado con más de 15 años de experiencia en consultoría estratégica e integración de soluciones tecnológicas. Líder en proyectos de inteligencia artificial.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Integrante 2 -->
+                        <div class="equipo-miembro" data-categoria="derecho">
+                            <img src="img_equipo/amg2.jpeg" alt="María González" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Raul Condezo</h4>
+                                <p class="cargo">Director de Derecho Corporativo</p>
+                                <p>
+                                    Abogado especializado en derecho corporativo y compliance, con 10 años de experiencia asesorando empresas multinacionales en regulaciones legales.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Integrante 3 -->
+                        <div class="equipo-miembro" data-categoria="ingenieria">
+                            <img src="img_equipo/amg3.jpg" alt="Carlos Ramírez" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Carlos Ramírez</h4>
+                                <p class="cargo">Jefe de Innovación Tecnológica</p>
+                                <p>
+                                    Ingeniero en sistemas con experiencia en soluciones basadas en inteligencia artificial y automatización de procesos, liderando proyectos tecnológicos.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Integrante 4 -->
+                        <div class="equipo-miembro" data-categoria="medicina">
+                            <img src="img_equipo/amg4.jpg" alt="Ana López" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Ana López</h4>
+                                <p class="cargo">Directora de Servicios Médicos</p>
+                                <p>
+                                    Médica con 12 años de experiencia en atención clínica y gestión de programas de salud, especializada en medicina preventiva y bienestar.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Integrante 5 -->
+                        <div class="equipo-miembro" data-categoria="psicologia">
+                            <img src="img_equipo/amg5.jpg" alt="Sofía Martínez" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Sofía Martínez</h4>
+                                <p class="cargo">Jefa de Psicología Organizacional</p>
+                                <p>
+                                    Psicóloga con 8 años de experiencia en desarrollo organizacional y bienestar laboral, enfocada en mejorar la productividad y la salud mental en empresas.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Integrante 6 -->
+                        <div class="equipo-miembro" data-categoria="ingenieria">
+                            <img src="img_equipo/amg6.jpg" alt="Juan Pérez" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Juan Pérez</h4>
+                                <p class="cargo">Ingeniero de Proyectos</p>
+                                <p>
+                                    Ingeniero civil con experiencia en la gestión de proyectos de infraestructura y tecnología, optimizando procesos con soluciones innovadoras.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Integrante 7 -->
+                        <div class="equipo-miembro" data-categoria="arquitectura">
+                            <img src="img_equipo/amg7.jpg" alt="Juan Pérez" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>José Valladares</h4>
+                                <p class="cargo">Arquitecto</p>
+                                <p>
+                                    Arquitecto con experiencia en proyectos públicos y privados, con amplia experiencia profesional.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="seccion-4">
+            <nav class="navega-footer">
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <div class="contenedor-s4">
+                <div class="textos-s4">
+                    <h3>Subtitulo 1</h3>
+                    <a href="#">Enlace 1</a>
+                    <a href="#">Enlace 2</a>
+                    <a href="#">Enlace 3</a>
+                </div>
+                <div class="textos-s4">
+                    <h3>Subtitulo 2</h3>
+                    <a href="#">Enlace 1</a>
+                    <a href="#">Enlace 2</a>
+                    <a href="#">Enlace 3</a>
+                </div>
+                <div class="textos-s4">
+                    <h3>Subtitulo 3</h3>
+                    <a href="#">Enlace 1</a>
+                    <a href="#">Enlace 2</a>
+                    <a href="#">Enlace 3</a>
+                </div>
+                <div class="textos-s4">
+                    <h3>Subtitulo 4</h3>
+                    <a href="#">Enlace 1</a>
+                    <a href="#">Enlace 2</a>
+                    <a href="#">Enlace 3</a>
+                </div>
+            </div>
+            <footer class="footer">
+                &copy; <a href="index.html">Osler Ricaldi Sánchez</a>
+                <p>Todos los derechos reservados</p>
+            </footer>
+        </section>
+    </main>
+
+    <!-- Script para interactividad -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

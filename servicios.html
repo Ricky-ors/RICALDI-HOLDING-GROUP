@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubra los servicios profesionales de RICALDI HOLDING GROUP en ingeniería, derecho e inteligencia artificial, con soluciones innovadoras y multidisciplinarias.">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Servicios - RICALDI HOLDING GROUP</title>
+</head>
+
+<body>
+    <main class="main">
+        <!-- Header -->
+        <header class="cabecera">
+            <a href="index.html" class="cabecera_link">
+                <img src="img/osler.png" alt="Logo de pagina" class="cabecera_img">Osler Lazaro Ricaldi Sánchez
+            </a>
+        </header>
+
+        <!-- Navegación -->
+        <nav class="navega" id="navega">
+            <div class="navega-container">
+                <a href="index.html" class="navega-link">Inicio</a>
+                <a href="nosotros.html" class="navega-link">Nosotros</a>
+                <a href="servicios.html" class="navega-link active">Servicios</a>
+                <a href="contacto.html" class="navega-link">Contacto</a>
+            </div>
+            <button class="navega-toggle" aria-label="Toggle menu">
+                <span class="navega-icon"></span>
+            </button>
+        </nav>
+
+        <!-- Sección Servicios -->
+        <section class="servicios">
+            <div class="servicios-container">
+                <h1>Nuestros Servicios</h1>
+                <h2>RICALDI HOLDING GROUP</h2>
+                <p>
+                    <strong>RICALDI HOLDING GROUP</strong> ofrece servicios profesionales integrales que combinan conocimiento y experiencia en ingeniería (Civil, Geotecnia, Sanitaria, Eléctrica, Electrónica, Mecatrónica y Ambiental), derecho (Constitucional,
+                    Civil, Penal, Comercial, Contractual, Saneamiento Físico Legal, Arbitral) e inteligencia artificial. Actuamos en los sectores público y privado, brindando asesorías, peritajes y soluciones innovadoras de alta calidad a nivel nacional
+                    con un enfoque multidisciplinario, respaldado por un equipo con doble titulación y niveles académicos de maestría y doctorado.
+                </p>
+
+                <!-- Modal -->
+                <div class="modal" id="equipo-modal">
+                    <div class="modal-content">
+                        <span class="modal-close">&times;</span>
+                        <h4 id="modal-nombre"></h4>
+                        <p id="modal-cargo" class="cargo"></p>
+                        <p id="modal-descripcion"></p>
+                        <a id="modal-enlace" href="#" target="_blank">Ver perfil completo</a>
+                    </div>
+                </div>
+
+                <!-- Equipo de Ingeniería -->
+                <div class="equipo-container" id="ingenieria">
+                    <h3>Equipo de Ingeniería</h3>
+                    <p>
+                        Contamos con un equipo profesional especializado en Ingeniería Civil, Geotecnia, Sanitaria, Eléctrica, Electrónica, Mecatrónica y Ambiental.
+                    </p>
+                    <!-- Botones de filtro -->
+                    <div class="equipo-filtros equipo-filtros-ingenieria">
+                        <button class="filtro-boton active" data-categoria="todos">Todos</button>
+                        <button class="filtro-boton" data-categoria="civil">Civil</button>
+                        <button class="filtro-boton" data-categoria="geotecnia">Geotecnia</button>
+                        <button class="filtro-boton" data-categoria="sanitaria">Sanitaria</button>
+                        <button class="filtro-boton" data-categoria="electrica">Eléctrica</button>
+                        <button class="filtro-boton" data-categoria="electronica">Electrónica</button>
+                        <button class="filtro-boton" data-categoria="mecatronica">Mecatrónica</button>
+                        <button class="filtro-boton" data-categoria="ambiental">Ambiental</button>
+                    </div>
+                    <!-- Cuadros de servicios -->
+                    <div class="equipo-imagenes">
+                        <!-- Civil -->
+                        <div class="equipo-miembro" data-categoria="civil">
+                            <img src="img/ingenieria-civil.jpg" alt="Ingeniería Civil" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Ingeniería Civil</h4>
+                                <p class="cargo">Carreteras y Puentes</p>
+                                <p>Diseño y construcción de carreteras principales y secundarias, así como puentes adaptados a las geografías de costa, sierra y selva del Perú.</p>
+                            </div>
+                        </div>
+                        <!-- Geotecnia -->
+                        <div class="equipo-miembro" data-categoria="geotecnia">
+                            <img src="img/ingenieria-geotecnia.jpg" alt="Geotecnia" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Geotecnia</h4>
+                                <p class="cargo">Estudios de Suelos</p>
+                                <p>Análisis y diseño de cimentaciones, estabilidad de taludes y soluciones geotécnicas para proyectos de infraestructura.</p>
+                            </div>
+                        </div>
+                        <!-- Sanitaria -->
+                        <div class="equipo-miembro" data-categoria="sanitaria">
+                            <img src="img/ingenieria-sanitaria.jpg" alt="Sanitaria" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Ingeniería Sanitaria</h4>
+                                <p class="cargo">Sistemas de Agua y Saneamiento</p>
+                                <p>Diseño y gestión de sistemas de agua potable, alcantarillado y tratamiento de aguas residuales.</p>
+                            </div>
+                        </div>
+                        <!-- Eléctrica -->
+                        <div class="equipo-miembro" data-categoria="electrica">
+                            <img src="img/ingenieria-electrica.jpg" alt="Eléctrica" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Ingeniería Eléctrica</h4>
+                                <p class="cargo">Sistemas Eléctricos</p>
+                                <p>Proyectos de redes eléctricas, subestaciones y soluciones de eficiencia energética.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipo de Abogados -->
+                <div class="equipo-container" id="abogados">
+                    <h3>Equipo de Abogados</h3>
+                    <p>
+                        Contamos con un equipo de profesionales especializados en Derecho Constitucional, Civil, Penal, Comercial, Contractual, Saneamiento Físico Legal y Arbitral.
+                    </p>
+                    <!-- Botones de filtro -->
+                    <div class="equipo-filtros equipo-filtros-abogados">
+                        <button class="filtro-boton active" data-categoria="todos">Todos</button>
+                        <button class="filtro-boton" data-categoria="constitucional">Constitucional</button>
+                        <button class="filtro-boton" data-categoria="civil">Civil</button>
+                        <button class="filtro-boton" data-categoria="penal">Penal</button>
+                        <button class="filtro-boton" data-categoria="comercial">Comercial</button>
+                        <button class="filtro-boton" data-categoria="contractual">Contractual</button>
+                        <button class="filtro-boton" data-categoria="saneamiento">Saneamiento</button>
+                        <button class="filtro-boton" data-categoria="arbitral">Arbitral</button>
+                    </div>
+                    <!-- Cuadros de servicios -->
+                    <div class="equipo-imagenes">
+                        <!-- Constitucional -->
+                        <div class="equipo-miembro" data-categoria="constitucional">
+                            <img src="img/derecho-constitucional.jpg" alt="Derecho Constitucional" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Derecho Constitucional</h4>
+                                <p class="cargo">Asesoría Constitucional</p>
+                                <p>Asesoría en procesos constitucionales, amparos y defensa de derechos fundamentales.</p>
+                            </div>
+                        </div>
+                        <!-- Civil -->
+                        <div class="equipo-miembro" data-categoria="civil">
+                            <img src="img/derecho-civil.jpg" alt="Derecho Civil" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Derecho Civil</h4>
+                                <p class="cargo">Litigios Civiles</p>
+                                <p>Gestión de disputas civiles, contratos y propiedad.</p>
+                            </div>
+                        </div>
+                        <!-- Penal -->
+                        <div class="equipo-miembro" data-categoria="penal">
+                            <img src="img/derecho-penal.jpg" alt="Derecho Penal" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Derecho Penal</h4>
+                                <p class="cargo">Defensa Penal</p>
+                                <p>Representación en casos penales y estrategias de defensa legal.</p>
+                            </div>
+                        </div>
+                        <!-- Comercial -->
+                        <div class="equipo-miembro" data-categoria="comercial">
+                            <img src="img/derecho-comercial.jpg" alt="Derecho Comercial" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Derecho Comercial</h4>
+                                <p class="cargo">Asesoría Empresarial</p>
+                                <p>Soluciones legales para empresas, fusiones y adquisiciones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipo de Inteligencia Artificial -->
+                <div class="equipo-container" id="inteligencia-artificial">
+                    <h3>Inteligencia Artificial</h3>
+                    <p>
+                        Contamos con un equipo especializado en el desarrollo de soluciones de inteligencia artificial, incluyendo aprendizaje supervisado, no supervisado y redes neuronales.
+                    </p>
+                    <!-- Botones de filtro -->
+                    <div class="equipo-filtros equipo-filtros-ia">
+                        <button class="filtro-boton active" data-categoria="todos">Todos</button>
+                        <button class="filtro-boton" data-categoria="supervisado">Supervisado</button>
+                        <button class="filtro-boton" data-categoria="no-supervisado">No Supervisado</button>
+                        <button class="filtro-boton" data-categoria="redes-neuronales">Redes Neuronales</button>
+                    </div>
+                    <!-- Cuadros de servicios -->
+                    <div class="equipo-imagenes">
+                        <!-- Supervisado -->
+                        <div class="equipo-miembro" data-categoria="supervisado">
+                            <img src="img/ia-supervisado.jpg" alt="Aprendizaje Supervisado" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Aprendizaje Supervisado</h4>
+                                <p class="cargo">Modelos Predictivos</p>
+                                <p>Desarrollo de modelos de machine learning con datos etiquetados para predicciones precisas.</p>
+                            </div>
+                        </div>
+                        <!-- No Supervisado -->
+                        <div class="equipo-miembro" data-categoria="no-supervisado">
+                            <img src="img/ia-no-supervisado.jpg" alt="Aprendizaje No Supervisado" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Aprendizaje No Supervisado</h4>
+                                <p class="cargo">Análisis de Datos</p>
+                                <p>Identificación de patrones y clústeres en datos sin etiquetar para soluciones innovadoras.</p>
+                            </div>
+                        </div>
+                        <!-- Redes Neuronales -->
+                        <div class="equipo-miembro" data-categoria="redes-neuronales">
+                            <img src="img/ia-redes-neuronales.jpg" alt="Redes Neuronales" class="equipo-img">
+                            <div class="equipo-descripcion">
+                                <h4>Redes Neuronales</h4>
+                                <p class="cargo">Deep Learning</p>
+                                <p>Implementación de redes neuronales profundas para aplicaciones avanzadas de IA.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="seccion-4">
+            <nav class="navega-footer">
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <div class="contenedor-s4">
+                <div class="textos-s4">
+                    <h3>Subtitulo 1</h3>
+                    <a href="#">Enlace 1</a>
+                    <a href="#">Enlace 2</a>
+                    <a href="#">Enlace 3</a>
+                </div>
+                <div class="textos-s4">
+                    <h3>Subtitulo 2</h3>
+                    <a href="#">Enlace 1</a>
+                    <a href="#">Enlace 2</a>
+                    <a href="#">Enlace 3</a>
+                </div>
+                <div class="textos-s4">
+                    <h3>Subtitulo 3</h3>
+                    <a href="#">Enlace 1</a>
+                    <a href="#">Enlace 2</a>
+                    <a href="#">Enlace 3</a>
+                </div>
+                <div class="textos-s4">
+                    <h3>Subtitulo 4</h3>
+                    <a href="#">Enlace 1</a>
+                    <a href="#">Enlace 2</a>
+                    <a href="#">Enlace 3</a>
+                </div>
+            </div>
+            <footer class="footer">
+                &copy; <a href="index.html">Osler Ricaldi Sánchez</a>
+                <p>Todos los derechos reservados</p>
+            </footer>
+        </section>
+    </main>
+
+    <!-- Script para interactividad -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
