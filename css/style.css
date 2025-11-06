@@ -46,17 +46,20 @@
     /* Estilos generales para el nav */
     
     .navega {
-        background-color: #333;
+        width: 100%;
+        display: flex justify-content: space-between background-color: #333;
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
     
     .navega-container {
         display: flex;
-        justify-content: center;
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0 1rem;
     }
     
     .navega-link {
@@ -2358,5 +2361,388 @@
         }
         .contenido-container {
             height: 400px;
+        }
+    }
+    /* Submenú oculto por defecto */
+    
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #222;
+        min-width: 220px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        padding: 0.5rem 0;
+    }
+    /* Mostrar al hacer hover */
+    
+    .navega-link.has-submenu:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    /* Estilos de los ítems del submenú */
+    
+    .submenu a {
+        display: block;
+        padding: 0.7rem 1.2rem;
+        color: #fff;
+        font-size: 0.95rem;
+        transition: background 0.2s ease;
+    }
+    
+    .submenu a:hover {
+        background: #e91e63;
+        /* Rosa Ara */
+        color: white;
+        padding-left: 1.5rem;
+    }
+    /* Contenedor del ítem con submenú */
+    
+    .navega-item {
+        position: relative;
+        display: inline-block;
+    }
+    /* El enlace dentro */
+    
+    .navega-item>.navega-link {
+        display: block;
+        padding: 1rem;
+    }
+    /* Submenú */
+    
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #222;
+        min-width: 220px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        padding: 0.5rem 0;
+    }
+    /* Mostrar al hacer hover en el contenedor */
+    
+    .navega-item:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    /* Estilos de ítems del submenú */
+    
+    .submenu a {
+        display: block;
+        padding: 0.7rem 1.2rem;
+        color: #fff;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+    }
+    
+    .submenu a:hover {
+        background: #e91e63;
+        /* Rosa Ara */
+        padding-left: 1.5rem;
+        color: white;
+    }
+    /* Estilos para ítems con submenú dentro del submenú */
+    
+    .submenu-item {
+        position: relative;
+        width: 100%;
+    }
+    
+    .submenu-link {
+        display: block;
+        padding: 0.7rem 1.2rem;
+        color: #fff;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    
+    .submenu-link::after {
+        content: "▼";
+        font-size: 0.7rem;
+        margin-left: 0.5rem;
+        opacity: 0.6;
+        transition: transform 0.2s ease;
+    }
+    
+    .submenu-item:hover>.submenu-link::after {
+        transform: rotate(180deg);
+    }
+    /* SUB-SUBMENÚ */
+    
+    .sub-submenu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background: #1a1a1a;
+        min-width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-10px);
+        transition: all 0.3s ease;
+        z-index: 1001;
+        padding: 0.5rem 0;
+        margin-left: 5px;
+    }
+    
+    .submenu-item:hover>.sub-submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    /* Ítems del sub-submenú */
+    
+    .sub-submenu a {
+        display: block;
+        padding: 0.6rem 1.2rem;
+        color: #ddd;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+    }
+    
+    .sub-submenu a:hover {
+        background: #2b10db;
+        /* Rosa Ara */
+        color: white;
+        padding-left: 1.5rem;
+        font-weight: 500;
+    }
+    /*Nuevas Modificaciones menu principal*/
+    
+    .navega {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        background: #231919;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    /*Efectos de fondo al hacer hover en el menu principal*/
+    
+    .navega-link:hover {
+        background: rgba(233, 30, 99, 0.2);
+        /* Rosa Ara suave */
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+    
+    .navega-link.active {
+        background: #e91e63;
+        color: white;
+        border-radius: 6px;
+        font-weight: 600;
+    }
+    /* Ocultar enlaces en móvil */
+    
+    @media (max-width: 768px) {
+        .navega-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #111;
+            flex-direction: column;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .navega-container.open {
+            max-height: 500px;
+        }
+        .navega-item,
+        .navega-link {
+            width: 100%;
+            text-align: center;
+        }
+        .submenu,
+        .sub-submenu {
+            position: static;
+            box-shadow: none;
+            background: #222;
+            width: 100%;
+        }
+    }
+    /* FORMATO DE LOGO EN Nav */
+    
+    .navega-brand a {
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: #e91e63;
+        text-decoration: none;
+    }
+    /* HERO SLIDER */
+    
+    .hero-slider {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background: #000;
+    }
+    
+    .slider-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+    
+    .slide.active {
+        opacity: 1;
+    }
+    
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.6);
+    }
+    
+    .slide-caption {
+        position: absolute;
+        bottom: 20%;
+        left: 10%;
+        color: white;
+        z-index: 2;
+        animation: fadeUp 1s ease;
+    }
+    
+    .slide-caption h2 {
+        font-size: 3.5rem;
+        margin: 0;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+    
+    .slide-caption p {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .btn-ara {
+        background: #e91e63;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-ara:hover {
+        background: white;
+        color: #e91e63;
+        transform: scale(1.1);
+    }
+    /* FLECHAS */
+    
+    .prev-btn,
+    .next-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(233, 30, 99, 0.7);
+        color: white;
+        border: none;
+        font-size: 2rem;
+        padding: 1rem;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+        transition: all 0.3s;
+    }
+    
+    .prev-btn {
+        left: 2rem;
+    }
+    
+    .next-btn {
+        right: 2rem;
+    }
+    
+    .prev-btn:hover,
+    .next-btn:hover {
+        background: #e91e63;
+        transform: translateY(-50%) scale(1.2);
+    }
+    /* PUNTOS */
+    
+    .slider-dots {
+        position: absolute;
+        bottom: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 1rem;
+        z-index: 10;
+    }
+    
+    .dot {
+        width: 12px;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .dot.active {
+        background: #e91e63;
+        transform: scale(1.4);
+    }
+    /* TOQUE ARA */
+    
+    .rosa-especial h2 {
+        color: #e91e63;
+        font-size: 4rem;
+    }
+    
+    .beso {
+        font-size: 1.8rem;
+        animation: latido 1.5s infinite;
+    }
+    
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes latido {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
         }
     }

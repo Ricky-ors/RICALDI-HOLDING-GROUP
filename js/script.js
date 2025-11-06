@@ -288,12 +288,21 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-        }
+const < script >
+    document.querySelectorAll('.has-submenu').forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.classList.toggle('open');
+            }
+        });
     });
+/script>observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+    entry.target.classList.add('fade-in-up');
+}
+});
 }, observerOptions);
 
 // Observar secciones

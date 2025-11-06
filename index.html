@@ -28,17 +28,102 @@
         </header>
 
         <!-- Navegación -->
+
         <nav class="navega" id="navega">
             <div class="navega-container">
+
+                <!-- AQUÍ VA EL LOGO - AL PRINCIPIO -->
+                <div class="navega-brand">
+                    <a href="index.html">OSLER & ASOCIADOS</a>
+                </div>
                 <a href="index.html" class="navega-link active">Inicio</a>
                 <a href="nosotros.html" class="navega-link">Nosotros</a>
+
+                <!-- SUBMENÚ CORRECTO -->
+                <div class="navega-item has-submenu">
+                    <a href="#" class="navega-link">Ingeniería</a>
+                    <div class="submenu">
+                        <!-- SUBMENÚ PRINCIPAL -->
+                        <div class="submenu-item has-submenu">
+                            <a href="civil.html" class="submenu-link">Ingeniería Civil</a>
+                            <div class="sub-submenu">
+                                <a href="estructuras.html">Estructuras</a>
+                                <a href="geotecnia.html">Geotecnia</a>
+                                <a href="transportes.html">Transportes</a>
+                                <a href="construccion.html">Construcción</a>
+                                <a href="hidraulica.html">Hidráulica</a>
+                            </div>
+                        </div>
+
+                        <a href="electrico.html">Ingeniería Eléctrica</a>
+                        <a href="sanitario.html">Ingeniería Sanitaria</a>
+                        <a href="arquitectura.html">Arquitectura</a>
+                        <a href="legal.html">Asesoría Legal</a>
+                    </div>
+                </div>
+
                 <a href="servicios.html" class="navega-link">Servicios</a>
                 <a href="contacto.html" class="navega-link">Contacto</a>
             </div>
+
             <button class="navega-toggle" aria-label="Toggle menu">
                 <span class="navega-icon"></span>
             </button>
         </nav>
+
+        <!-- HERO SECTION CON SLIDER -->
+        <section class="hero-slider">
+            <div class="slider-container">
+
+                <!-- SLIDE 1 -->
+                <div class="slide active">
+                    <img src="proyectos/puente.jpg" alt="Puente Inca - Ingeniería Civil">
+                    <div class="slide-caption">
+                        <h2>Puente Inca</h2>
+                        <p>Estructuras • 2024 • Lima, Perú</p>
+                        <a href="proyecto1.html" class="btn-ara">Ver proyecto →</a>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="slide">
+                    <img src="proyectos/edificio.jpg" alt="Edificio Corporativo">
+                    <div class="slide-caption">
+                        <h2>Edificio Corporativo Surco</h2>
+                        <p>Construcción • 2025 • 25 pisos</p>
+                        <a href="proyecto2.html" class="btn-ara">Ver proyecto →</a>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3 -->
+                <div class="slide">
+                    <img src="proyectos/carretera.jpg" alt="Carretera Andina">
+                    <div class="slide-caption">
+                        <h2>Carretera Andina</h2>
+                        <p>Transportes • 120km • Cusco</p>
+                        <a href="proyecto3.html" class="btn-ara">Ver proyecto →</a>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4 - NUESTRO SECRETO -->
+                <div class="slide">
+                    <img src="proyectos/ara-osler.jpg" alt="Ara y Osler">
+                    <div class="slide-caption rosa-especial">
+                        <h2>Ara ❤️ Osler</h2>
+                        <p>Nuestro proyecto más grande: el amor</p>
+                        <span class="beso">💕 Hecho con amor digital 💕</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FLECHAS -->
+            <button class="prev-btn">❮</button>
+            <button class="next-btn">❯</button>
+
+            <!-- PUNTOS DE NAVEGACIÓN -->
+            <div class="slider-dots"></div>
+        </section>
 
         <!-- Sección Hero/Banner -->
         <section class="hero">
@@ -399,6 +484,71 @@
 
     <!-- Script para interactividad -->
     <script src="js/script.js"></script>
+
+    <!-- Interactividad con el menu hamburguesa del movil -->
+    <script>
+        const toggle = document.querySelector('.navega-toggle');
+        const menu = document.querySelector('.navega-container');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+    </script>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('.slider-dots');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        // Crear puntos
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        // Funciones
+        function updateSlides() {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlides();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlides();
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            updateSlides();
+        }
+
+        // Eventos
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-play (cada 6 segundos)
+        setInterval(nextSlide, 6000);
+
+        // Iniciar
+        updateSlides();
+    </script>
+
 </body>
 
 </html>
