@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     // 1. Resaltar enlace activo en el menú de navegación
     const links = document.querySelectorAll('.navega-link');
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -31,21 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Filtros y animación para las secciones de equipos
-    const isElementInViewport = (el) => {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight)
-        );
-    };
+    // 3. Submenús en móvil (has-submenu)
+    document.querySelectorAll('.has-submenu').forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.classList.toggle('open');
+            }
+        });
+    });
 
+    // 4. Filtros y animación para las secciones de equipos
+    // CORRECCIÓN: animateEquipo ya no depende del viewport, activa todas las tarjetas visibles
     const animateEquipo = (miembros) => {
         miembros.forEach((miembro, index) => {
-            if (miembro.style.display !== 'none' && isElementInViewport(miembro)) {
+            if (miembro.style.display !== 'none') {
                 setTimeout(() => {
                     miembro.classList.add('visible');
-                }, index * 200);
+                }, index * 150);
             }
         });
     };
@@ -78,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         filtrarEquipo(nosotrosContainer, 'todos');
-        window.addEventListener('scroll', () => animateEquipo(nosotrosContainer.querySelectorAll('.equipo-miembro')));
     }
 
     // Configurar filtros para Servicios
@@ -101,11 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
             filtrarEquipo(container, 'todos');
-            window.addEventListener('scroll', () => animateEquipo(container.querySelectorAll('.equipo-miembro')));
         }
     });
 
-    // 4. Modal para información adicional
+    // 5. Modal para información adicional
     const modal = document.getElementById('equipo-modal');
     const modalNombre = document.getElementById('modal-nombre');
     const modalCargo = document.getElementById('modal-cargo');
@@ -139,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Validación del formulario de contacto
+    // 6. Validación del formulario de contacto
     const contactoForm = document.getElementById('contacto-form');
     const formMensaje = document.getElementById('form-mensaje');
     if (contactoForm && formMensaje) {
@@ -170,33 +172,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Inicializar Google Maps con marcador personalizado y direcciones dinámicas
+    // 7. Google Maps
     const mapContainer = document.getElementById('map');
-    if (mapContainer) {
-        // Coordenadas de RICALDI HOLDING GROUP (Av. Principal 123, Lima, Perú)
+    if (mapContainer && typeof google !== 'undefined') {
         const oficina = { lat: -12.0553057, lng: -77.0375333 };
-
-        // Inicializar el mapa
         const map = new google.maps.Map(mapContainer, {
             center: oficina,
             zoom: 15,
-            mapId: 'DEMO_MAP_ID' // Usa un mapId válido si tienes uno, o elimínalo para mapas raster
+            mapId: 'DEMO_MAP_ID'
         });
 
-        // Marcador personalizado
         const marker = new google.maps.marker.AdvancedMarkerElement({
             map: map,
             position: oficina,
-            title: 'RICALDI HOLDING GROUP'
+            title: 'RICALDI HOLDING GROUP',
+            content: new google.maps.marker.PinElement({
+                glyph: '',
+                background: '#00aaff',
+                borderColor: '#333',
+                glyphColor: 'white'
+            }).element
         });
 
-        // Ventana de información al hacer clic en el marcador
         const infoWindow = new google.maps.InfoWindow({
             content: `
                 <div style="font-family: Arial, sans-serif; padding: 10px;">
                     <h3>RICALDI HOLDING GROUP</h3>
                     <p>Av. Principal 123, Lima, Perú</p>
-                    <p><strong>Teléfono:</strong> +51 123 456 789</p>
+                    <p><strong>Teléfono:</strong> +51 959 682 334</p>
                     <p><strong>Correo:</strong> contacto@ricaldiholdinggroup.com</p>
                 </div>
             `
@@ -206,11 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
             infoWindow.open(map, marker);
         });
 
-        // Direcciones dinámicas
         const directionsService = new google.maps.DirectionsService();
         const directionsRenderer = new google.maps.DirectionsRenderer({
             map: map,
-            suppressMarkers: true // No mostrar marcadores automáticos de la ruta
+            suppressMarkers: true
         });
 
         const calcularRutaBtn = document.getElementById('calcular-ruta');
@@ -222,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Por favor, ingrese una ubicación de origen.');
                     return;
                 }
-
                 directionsService.route({
                     origin: origen,
                     destination: 'Av. Principal 123, Lima, Perú',
@@ -237,75 +238,57 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-});
 
-// Reemplaza la creación del marcador en el código anterior
-const marker = new google.maps.marker.AdvancedMarkerElement({
-    map: map,
-    position: oficina,
-    title: 'RICALDI HOLDING GROUP',
-    content: new google.maps.marker.PinElement({
-        glyph: '', // Puedes añadir un ícono o texto
-        background: '#00aaff',
-        borderColor: '#333',
-        glyphColor: 'white'
-    }).element
-});
-// CARRUSEL PARA SERVICIOS
-const carruselTrack = document.querySelector('.carrusel-track');
-const carruselBtns = document.querySelectorAll('.carrusel-btn');
-const carruselDots = document.querySelectorAll('.dot');
-let currentSlide = 0;
-const slideWidth = 320; // Ancho de cada tarjeta + gap
+    // 8. Carrusel de servicios
+    const carruselTrack = document.querySelector('.carrusel-track');
+    const carruselBtns = document.querySelectorAll('.carrusel-btn');
+    const carruselDots = document.querySelectorAll('.dot');
 
-function updateCarousel() {
-    carruselTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-    carruselDots.forEach(dot => dot.classList.remove('active'));
-    carruselDots[currentSlide].classList.add('active');
-}
+    if (carruselTrack && carruselDots.length > 0) {
+        let currentSlide = 0;
+        const slideWidth = 320;
 
-carruselBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        if (btn.classList.contains('prev')) {
-            currentSlide = (currentSlide > 0) ? currentSlide - 1 : carruselDots.length - 1;
-        } else {
-            currentSlide = (currentSlide < carruselDots.length - 1) ? currentSlide + 1 : 0;
+        function updateCarousel() {
+            carruselTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            carruselDots.forEach(dot => dot.classList.remove('active'));
+            if (carruselDots[currentSlide]) carruselDots[currentSlide].classList.add('active');
         }
-        updateCarousel();
-    });
-});
 
-carruselDots.forEach(dot => {
-    dot.addEventListener('click', () => {
-        currentSlide = parseInt(dot.dataset.slide);
-        updateCarousel();
-    });
-});
+        carruselBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('prev')) {
+                    currentSlide = (currentSlide > 0) ? currentSlide - 1 : carruselDots.length - 1;
+                } else {
+                    currentSlide = (currentSlide < carruselDots.length - 1) ? currentSlide + 1 : 0;
+                }
+                updateCarousel();
+            });
+        });
 
-// Animaciones al hacer scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+        carruselDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentSlide = parseInt(dot.dataset.slide);
+                updateCarousel();
+            });
+        });
+    }
 
-const < script >
-    document.querySelectorAll('.has-submenu').forEach(item => {
-        item.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                this.classList.toggle('open');
+    // 9. Animaciones al hacer scroll (IntersectionObserver)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
             }
         });
-    });
-/script>observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-    entry.target.classList.add('fade-in-up');
-}
-});
-}, observerOptions);
+    }, observerOptions);
 
-// Observar secciones
-document.querySelectorAll('.servicios-destacados, .sobre-nosotros, .contacto-rapido').forEach(section => {
-    observer.observe(section);
+    document.querySelectorAll('.servicios-destacados, .sobre-nosotros, .contacto-rapido').forEach(section => {
+        observer.observe(section);
+    });
+
 });
