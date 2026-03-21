@@ -350,11 +350,11 @@
             <div class="slider-dots"></div>
         </section>
 
-        <!-- SECCIÓN SERVICIOS - CARRUSEL HORIZONTAL CON FLIP Y 4 VISIBLES -->
+        <!-- SECCIÓN CARRUSEL HORIZONTAL CON FLIP Y 4 VISIBLES -->
         <section class="servicios" id="servicios">
             <div class="container">
                 <h2 class="section-title">PLATAFORMA INTEGRAL E INNOVADORA CON AI</h2>
-
+                <p class="section-subtitle">Soluciones multidisciplinarias en ingenieria, derecho, inteligencia artificial</p>p>
                 <div class="servicios-carousel">
                     <button class="carousel-prev">❮</button>
                     <div class="carousel-track-container">
@@ -892,48 +892,47 @@
     </script>
 
 
-    <!-- SCROLL PARA TARJETAS ARA -->
+    <!-- SCROLL PARA TARJETAS CARRUSEL -->
     <script>
-        const container = document.querySelector('.carousel-track-container');
-        const prevBtn = document.querySelector('.carousel-prev');
-        const nextBtn = document.querySelector('.carousel-next');
-        const scrollAmount = 1528; // 4 x 382px (ancho tarjeta + gap) - AJUSTE EXACTO
+        (function() {
+            const container = document.querySelector('.carousel-track-container');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            const scrollAmount = 370;
 
-        function updateButtons() {
-            const atStart = container.scrollLeft <= 10;
-            const atEnd = Math.abs(container.scrollWidth - container.scrollLeft - container.offsetWidth) <= 10;
+            function updateButtons() {
+                const atStart = container.scrollLeft <= 10;
+                const atEnd = Math.abs(container.scrollWidth - container.scrollLeft - container.offsetWidth) <= 10;
+                prevBtn.style.display = atStart ? 'none' : 'flex';
+                nextBtn.style.display = atEnd ? 'none' : 'flex';
+            }
 
-            prevBtn.style.display = atStart ? 'none' : 'block';
-            nextBtn.style.display = atEnd ? 'none' : 'block';
-        }
-
-        nextBtn.addEventListener('click', () => {
-            container.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
+            nextBtn.addEventListener('click', () => {
+                container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+                setTimeout(updateButtons, 600);
             });
-            setTimeout(updateButtons, 600); // Espera la animación
-        });
 
-        prevBtn.addEventListener('click', () => {
-            container.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
+            prevBtn.addEventListener('click', () => {
+                container.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+                setTimeout(updateButtons, 600);
             });
-            setTimeout(updateButtons, 600);
-        });
 
-        // Rueda horizontal
-        container.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            container.scrollLeft += e.deltaY * 2;
-        });
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                container.scrollLeft += e.deltaY * 2;
+            });
 
-        // Actualizar siempre
-        container.addEventListener('scroll', updateButtons);
-        window.addEventListener('load', updateButtons);
-        window.addEventListener('resize', updateButtons);
-        setTimeout(updateButtons, 500); // Fuerza inicial
+            container.addEventListener('scroll', updateButtons);
+            window.addEventListener('load', updateButtons);
+            window.addEventListener('resize', updateButtons);
+            setTimeout(updateButtons, 500);
+        })();
     </script>
 
 </body>

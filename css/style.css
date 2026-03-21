@@ -3139,3 +3139,35 @@
                                                                                                                                                                                     letter-spacing: 1px;
                                                                                                                                                                                 }
                                                                                                                                                                             }
+                                                                                                                                                                            /* TÍTULO SECCIÓN CARRUSEL */
+                                                                                                                                                                            
+                                                                                                                                                                            .section-title {
+                                                                                                                                                                                font-size: 4.5rem;
+                                                                                                                                                                                font-weight: 800;
+                                                                                                                                                                                text-align: center;
+                                                                                                                                                                                margin-bottom: 0.8rem;
+                                                                                                                                                                                color: #0a0332;
+                                                                                                                                                                                letter-spacing: 2px;
+                                                                                                                                                                            }
+                                                                                                                                                                            
+                                                                                                                                                                            .section-subtitle {
+                                                                                                                                                                                text-align: center;
+                                                                                                                                                                                font-size: 1.1rem;
+                                                                                                                                                                                color: #555;
+                                                                                                                                                                                max-width: 800px;
+                                                                                                                                                                                margin: 0 auto 2rem auto;
+                                                                                                                                                                                line-height: 1.6;
+                                                                                                                                                                            }
+                                                                                                                                                                            /* TEXTO EN TARJETAS ARA-SPECIAL */
+                                                                                                                                                                            
+                                                                                                                                                                            .ara-special .card-front h3,
+                                                                                                                                                                            .ara-special .card-front p {
+                                                                                                                                                                                color: #1a1a2e;
+                                                                                                                                                                                text-shadow: none;
+                                                                                                                                                                            }
+                                                                                                                                                                            
+                                                                                                                                                                            .ara-special .card-back p,
+                                                                                                                                                                            .ara-special .card-back span {
+                                                                                                                                                                                color: #d0d0dd;
+                                                                                                                                                                                text-shadow: none;
+                                                                                                                                                                            }
